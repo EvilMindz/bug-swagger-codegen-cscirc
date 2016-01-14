@@ -11,11 +11,13 @@ namespace ConsoleApplication
     {
         static void Main(string[] args)
         {
-            var api = new DefaultApi("http://petstore.swagger.io/api");
+            var api = new DefaultApi("http://petstore.swagger.io/v2/");
+            api.Configuration.ApiKey.Add("api-key","special-key");
 
-            var pets = api.FindPets();
+            var pet = api.FindPetById(1);
 
-            Console.WriteLine("Found {0} pets.", pets.Count);
+            Console.WriteLine("Found {0} pet.", pet == null ? "no" : pet.Name);
+            Console.ReadLine();
         }
     }
 }
