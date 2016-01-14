@@ -12,6 +12,8 @@ namespace IO.Swagger.Client
     /// </summary>
     public class Configuration
     {
+        private int? _timeout;
+
         /// <summary>
         /// Initializes a new instance of the Configuration class with different settings
         /// </summary>
@@ -88,11 +90,15 @@ namespace IO.Swagger.Client
         /// <value>Timeout.</value>
         public int Timeout
         {
-            get { return ApiClient.RestClient.Timeout; }
+            get { return ApiClient != null && ApiClient.RestClient != null ? ApiClient.RestClient.Timeout : _timeout.GetValueOrDefault(0); }
 
-            set 
+            set
             {
-                ApiClient.RestClient.Timeout = value;
+                _timeout = value;
+                if (ApiClient != null && ApiClient.RestClient != null)
+                {
+                    ApiClient.RestClient.Timeout = _timeout.Value;
+                }
             }
         }
 
@@ -100,7 +106,18 @@ namespace IO.Swagger.Client
         /// Gets or sets the default API client for making HTTP calls.
         /// </summary>
         /// <value>The API client.</value>
-        public ApiClient ApiClient;
+        public ApiClient ApiClient
+        {
+            get { return _apiClient; }
+            set
+            {
+                _apiClient = value;
+                if (_timeout.HasValue && _apiClient != null && _apiClient.RestClient != null)
+                {
+                    _apiClient.RestClient.Timeout = _timeout.Value;
+                }
+            }
+        }
 
         private Dictionary<String, String> _defaultHeaderMap = new Dictionary<String, String>();
         
@@ -207,6 +224,7 @@ namespace IO.Swagger.Client
         private const string ISO8601_DATETIME_FORMAT = "o";
 
         private string _dateTimeFormat = ISO8601_DATETIME_FORMAT;
+        private ApiClient _apiClient;
 
         /// <summary>
         /// Gets or sets the the date time format used when serializing in the ApiClient
