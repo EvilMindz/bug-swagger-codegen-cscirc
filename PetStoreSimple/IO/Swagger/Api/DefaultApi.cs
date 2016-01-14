@@ -279,7 +279,7 @@ namespace IO.Swagger.Api
         {
             
     
-            var path_ = "/pets";
+            var path_ = "/pet";
     
             var pathParams = new Dictionary<String, String>();
             var queryParams = new Dictionary<String, String>();
@@ -348,7 +348,7 @@ namespace IO.Swagger.Api
         {
             
     
-            var path_ = "/pets";
+            var path_ = "/pet";
     
             var pathParams = new Dictionary<String, String>();
             var queryParams = new Dictionary<String, String>();
@@ -417,7 +417,7 @@ namespace IO.Swagger.Api
             if (pet == null) throw new ApiException(400, "Missing required parameter 'pet' when calling AddPet");
             
     
-            var path_ = "/pets";
+            var path_ = "/pet";
     
             var pathParams = new Dictionary<String, String>();
             var queryParams = new Dictionary<String, String>();
@@ -485,7 +485,7 @@ namespace IO.Swagger.Api
             if (pet == null) throw new ApiException(400, "Missing required parameter 'pet' when calling AddPet");
             
     
-            var path_ = "/pets";
+            var path_ = "/pet";
     
             var pathParams = new Dictionary<String, String>();
             var queryParams = new Dictionary<String, String>();
@@ -553,7 +553,7 @@ namespace IO.Swagger.Api
             if (id == null) throw new ApiException(400, "Missing required parameter 'id' when calling FindPetById");
             
     
-            var path_ = "/pets/{id}";
+            var path_ = "/pet/{id}";
     
             var pathParams = new Dictionary<String, String>();
             var queryParams = new Dictionary<String, String>();
@@ -621,7 +621,7 @@ namespace IO.Swagger.Api
             if (id == null) throw new ApiException(400, "Missing required parameter 'id' when calling FindPetById");
             
     
-            var path_ = "/pets/{id}";
+            var path_ = "/pet/{id}";
     
             var pathParams = new Dictionary<String, String>();
             var queryParams = new Dictionary<String, String>();
@@ -688,7 +688,7 @@ namespace IO.Swagger.Api
             if (id == null) throw new ApiException(400, "Missing required parameter 'id' when calling DeletePet");
             
     
-            var path_ = "/pets/{id}";
+            var path_ = "/pet/{id}";
     
             var pathParams = new Dictionary<String, String>();
             var queryParams = new Dictionary<String, String>();
@@ -755,7 +755,7 @@ namespace IO.Swagger.Api
             if (id == null) throw new ApiException(400, "Missing required parameter 'id' when calling DeletePet");
             
     
-            var path_ = "/pets/{id}";
+            var path_ = "/pet/{id}";
     
             var pathParams = new Dictionary<String, String>();
             var queryParams = new Dictionary<String, String>();
